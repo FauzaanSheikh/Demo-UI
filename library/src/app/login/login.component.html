@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <mat-card>
+        <mat-card-header fxLayout="column">
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <br/>
+      
+        <mat-card-content>
+          <form>
+            <mat-form-field fxLayout="column" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" required>
+            </mat-form-field>
+      
+            <mat-form-field fxLayout="column" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" required>
+            </mat-form-field>
+      
+            <div fxLayout="column">
+                <button mat-raised-button color="primary" type="submit">Login</button>
+            </div>
+          </form>
+      
+          <br/>
+          <div fxLayout="column">
+            <p>Don't have an account? <a routerLink="/register">Register</a></p> <!-- Add this line -->
+          </div>
+          
+        </mat-card-content>
+      </mat-card>
+      
+</div>
