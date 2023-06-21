@@ -14,6 +14,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RegisterComponent } from './register/register.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
