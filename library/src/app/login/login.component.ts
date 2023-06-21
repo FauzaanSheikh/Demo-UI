@@ -34,11 +34,12 @@ export class LoginComponent {
     .pipe(takeUntil(this.subscriber))
     .subscribe(resp=>{
       if(resp){
-        localStorage.setItem(environment.jwtTokenKey ,resp?.token || '');
-        localStorage.setItem('lib-user' ,resp?.email || '');
+        localStorage.setItem(environment.jwtTokenKey ,resp?.response?.token || '');
+        localStorage.setItem('lib-user' ,resp?.response?.email || '');
         this.snackBar.open('Hello, you have successfully logged in!', 'Close', {
           duration: 3000,
         });
+        this.sharedService.SetIsLoggedInStatus(true);
         this.router.navigateByUrl('/book-list');
       }
     },
@@ -47,5 +48,4 @@ export class LoginComponent {
     }
     );
   }
-
 }

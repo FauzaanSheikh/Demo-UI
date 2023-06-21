@@ -1,5 +1,8 @@
-<mat-toolbar color="primary">
-    <span>Demo Library</span>
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" color="primary">
     
-  </mat-toolbar>
+  <span >Demo Library</span>
+
+  <span *ngIf="IsLoggedIn | async" (click)="Logout()">Logout</span>
+    
+</mat-toolbar>
   
