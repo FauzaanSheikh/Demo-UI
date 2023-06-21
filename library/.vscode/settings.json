@@ -1,0 +1,29 @@
+{
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "[typescript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "beautify.config": {
+        "indent_size": 2,
+        "indent_char": " ",
+        "max_preserve_newlines": 2,
+        "preserve_newlines": true,
+        "keep_array_indentation": false,
+        "break_chained_methods": false,
+        "indent_scripts": "normal",
+        "space_in_paren": false,
+        "space_in_empty_paren": false,
+        "jslint_happy": false,
+        "space_after_anon_function": false,
+        "space_after_named_function": false,
+        "unescape_strings": false,
+        "wrap_line_length": 0,
+        "e4x": true,
+        "end_with_newline": true,
+        "comma_first": false,
+        "operator_position": "before-newline"
+    }
+}

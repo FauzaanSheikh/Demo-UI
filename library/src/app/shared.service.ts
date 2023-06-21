@@ -32,17 +32,19 @@ export class SharedService {
     * to keep things simple, I am simply removing it from the local storage
     * and not adding it to a block list etc...
     */
-    alert('Logout called!');
     localStorage.removeItem(environment.jwtTokenKey);
     this.SetIsLoggedInStatus(false);
   }
   
   SetIsLoggedInStatus(isLoggedIn:boolean){
-    alert('SetIsLoggedInStatus called! '+ isLoggedIn);
     this.isLoggedIn.next(isLoggedIn);
   }
   
   get LoggedInStatus(){
     return this.isLoggedIn.asObservable() ;
+  }
+
+  IsAuthenticated(){
+    return localStorage.getItem(environment.jwtTokenKey) != null ? true : false;
   }
 }

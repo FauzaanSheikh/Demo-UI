@@ -30,4 +30,7 @@ export class HeaderComponent {
     this.router.navigateByUrl('/login');
   }
   
+  IsAuth(){
+    return this.sharedService.IsAuthenticated();
+  }
 }

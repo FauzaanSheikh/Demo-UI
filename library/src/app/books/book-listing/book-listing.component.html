@@ -1,31 +1,39 @@
-<div>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <div>
+    <button mat-button color="primary" (click)="Add()">Add Record</button>
+  </div>
+  <div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
       
-        <!-- Name Column -->
-        <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef> Book Title </th>
-          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-        </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Book Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
       
-        <!-- Weight Column -->
-        <ng-container matColumnDef="author">
-          <th mat-header-cell *matHeaderCellDef> Author </th>
-          <td mat-cell *matCellDef="let element"> {{element.author}} </td>
-        </ng-container>
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef> Author </th>
+        <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+      </ng-container>
       
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="releaseDate">
-          <th mat-header-cell *matHeaderCellDef> Release Date </th>
-          <td mat-cell *matCellDef="let element"> {{element.releaseDate}} </td>
-        </ng-container>
+      <ng-container matColumnDef="releaseDate">
+        <th mat-header-cell *matHeaderCellDef> Release Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.releaseDate}} </td>
+      </ng-container>
       
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="Edit(element)">Edit</button>
+          <button mat-button color="warn" (click)="Delete(element)">Delete</button>
+        </td>
+      </ng-container>
       
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>

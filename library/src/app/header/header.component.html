@@ -2,7 +2,7 @@
     
   <span >Demo Library</span>
 
-  <span *ngIf="IsLoggedIn | async" (click)="Logout()">Logout</span>
+  <span *ngIf="IsAuth()" (click)="Logout()">Logout</span>
     
 </mat-toolbar>
   
