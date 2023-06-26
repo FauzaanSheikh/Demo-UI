@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { SharedService } from '../shared.service';
 import { Subject, take, takeUntil } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,8 +25,23 @@ export class RegisterComponent {
       email: new FormControl(null,[Validators.required, Validators.email]),
       password: new FormControl(null,[Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl(null,[Validators.required, Validators.minLength(8)])
-    });
+    }, { validators: this.passwordMatchValidator() });    
   }
+
+
+  passwordMatchValidator(): ValidatorFn {
+    return (formGroup: AbstractControl): {[key: string]: any} | null => {
+      const password = formGroup.get('password');
+      const confirmPassword = formGroup.get('confirmPassword');
+  
+      if (password && confirmPassword && password.value !== confirmPassword.value) {
+        return { 'passwordMismatch': true };
+      } else {
+        return null;
+      }
+    };
+  }
+  
 
   Register(){
     const dataObj = this.registerForm.getRawValue();
